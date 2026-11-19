@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1794434400000,
+      "tag": "0000_followup_task",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1794434500000,
+      "tag": "0001_sequential_stages",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1794434600000,
+      "tag": "0002_modules",
+      "breakpoints": true
+    }
+  ]
+}

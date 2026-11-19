@@ -1,0 +1,33 @@
+[
+  {
+    "id": "intro",
+    "title": "Ćwiczenie 1 - Zarządzanie ryzykiem",
+    "tasks": [
+      { "id": "definitions", "title": "Definicje", "activeByDefault": true },
+      { "id": "scenarios", "title": "Scenariusze", "activeByDefault": false },
+      { "id": "risk-commander", "title": "Risk Commander", "activeByDefault": false }
+    ]
+  },
+  {
+    "id": "norms",
+    "title": "Ćwiczenie 2 - Piramida cyberbezpieczeństwa",
+    "tasks": [
+      { "id": "piramida", "title": "Piramida cyberbezpieczeństwa", "activeByDefault": false },
+      { "id": "pojecia-praktyka", "title": "Od pojęć do praktyki", "activeByDefault": false }
+    ]
+  },
+  {
+    "id": "advisor",
+    "title": "Ćwiczenie 3 - Cyber Advisor",
+    "tasks": [
+      { "id": "cyber-advisor", "title": "Cyber Advisor", "activeByDefault": false }
+    ]
+  },
+  {
+    "id": "case-study",
+    "title": "Ćwiczenie 4 - Case study",
+    "tasks": [
+      { "id": "operacja-mydr", "title": "Operacja MyDr", "activeByDefault": false }
+    ]
+  }
+]

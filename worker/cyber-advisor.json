@@ -1,0 +1,564 @@
+{
+  "missions": [
+    {
+      "id": "hospital",
+      "icon": "hospital",
+      "title": "Szpital pod cyberatakiem",
+      "client": "Dyrektor szpitala",
+      "context": "Wczoraj pracownik kliknął podejrzany link i podał hasło. Dziś zauważyliśmy próby logowania do systemu dokumentacji medycznej z nieznanej lokalizacji. Przechowujemy dane tysięcy pacjentów, a dostępność systemów jest niezbędna do prowadzenia leczenia. Potrzebujemy Twojej pomocy.",
+      "takeaways": [
+        [
+          "RODO",
+          "Ochrona danych osobowych"
+        ],
+        [
+          "NIS2/KSC",
+          "Zarządzanie cyberbezpieczeństwem podmiotów objętych przepisami"
+        ],
+        [
+          "ISO/IEC 27001",
+          "System zarządzania bezpieczeństwem informacji"
+        ]
+      ],
+      "questions": [
+        {
+          "id": "h1",
+          "title": "Zakres przepisów",
+          "prompt": "Które dwie regulacje są szczególnie istotne w tej sytuacji?",
+          "options": [
+            "RODO",
+            "NIS2/KSC",
+            "DORA",
+            "CRA"
+          ],
+          "answer": [
+            0,
+            1
+          ],
+          "categories": [
+            "law"
+          ],
+          "hint": "Rozważ osobno poufność dokumentacji pacjentów i dostępność usług potrzebnych do leczenia.",
+          "feedback": [
+            "RODO obejmuje dane osobowe, a dane o zdrowiu należą do szczególnych kategorii danych. Dyrektywa NIS2 wyznacza ramy unijne, które Polska wdrożyła nowelizacją ustawy o KSC. Nowelizacja weszła w życie 3 kwietnia 2026 r. Zastosowanie przepisów KSC do konkretnego szpitala zależy od ustawowych kryteriów. Oba reżimy mogą mieć zastosowanie jednocześnie."
+          ],
+          "refs": [
+            "rodo",
+            "nis",
+            "ksc"
+          ],
+          "limit": 2
+        },
+        {
+          "id": "h2",
+          "title": "System zarządzania",
+          "prompt": "Chcemy uporządkować analizę ryzyka, odpowiedzialności, zabezpieczenia i ocenę ich skuteczności. Która norma najlepiej odpowiada tej potrzebie?",
+          "options": [
+            "ISO/IEC 27001",
+            "PCI DSS",
+            "ISO 22301",
+            "IEC 62443"
+          ],
+          "answer": [
+            0
+          ],
+          "categories": [
+            "standards"
+          ],
+          "hint": "Szukaj normy dla systemu zarządzania bezpieczeństwem informacji w całej organizacji.",
+          "feedback": [
+            "ISO/IEC 27001 określa wymagania dla systemu zarządzania bezpieczeństwem informacji (SZBI), w tym oceny ryzyka i postępowania z nim. Stosowanie normy może wspierać realizację wymagań prawnych. Sama norma nie jest aktem prawnym."
+          ],
+          "refs": [
+            "iso"
+          ]
+        },
+        {
+          "id": "h3",
+          "title": "NIS2 w praktyce",
+          "prompt": "Które działania odpowiadają obszarom zarządzania ryzykiem wskazanym w NIS2?",
+          "options": [
+            "Regularnie analizować ryzyka dotyczące systemów informatycznych.",
+            "Wprowadzić odpowiednie zabezpieczenia, np. kontrolę dostępu i MFA.",
+            "Przygotować procedury reagowania na incydenty oraz plany kopii zapasowych i odtwarzania systemów.",
+            "Kupić najdroższy dostępny firewall. Sam zakup zapewni zgodność z NIS2."
+          ],
+          "answer": [
+            0,
+            1,
+            2
+          ],
+          "categories": [
+            "law",
+            "practices"
+          ],
+          "hint": "Pomyśl, jak ograniczyć ryzyko przed incydentem i jak przygotować się do działania w trakcie awarii.",
+          "feedback": [
+            "Art. 21 NIS2 przewiduje odpowiednie i proporcjonalne środki, m.in. analizę ryzyka, kontrolę dostępu, obsługę incydentów, ciągłość działania i bezpieczeństwo łańcucha dostaw. Uwierzytelnianie wieloskładnikowe stosuje się tam, gdzie jest to odpowiednie. Zakup urządzenia to tylko jedno z możliwych działań."
+          ],
+          "refs": [
+            "nis",
+            "ksc"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bank",
+      "icon": "bank",
+      "title": "Bank, który nie może przestać działać",
+      "client": "Dyrektor IT banku",
+      "context": "Awaria dostawcy usług chmurowych sprawiła, że w piątek wieczorem bankowość internetowa przestała działać. Klienci przez kilka godzin nie mogli wykonywać przelewów. Zarząd chce wiedzieć, jak utrzymać usługi lub szybko je przywrócić przy następnej awarii.",
+      "takeaways": [
+        [
+          "DORA",
+          "Odporność cyfrowa sektora finansowego"
+        ],
+        [
+          "NIST CSF",
+          "Ramy zarządzania cyberbezpieczeństwem"
+        ],
+        [
+          "Ciągłość działania",
+          "Przygotowanie na awarie i odtwarzanie usług"
+        ]
+      ],
+      "questions": [
+        {
+          "id": "b1",
+          "title": "Odporność cyfrowa",
+          "prompt": "Która regulacja UE koncentruje się na odporności cyfrowej sektora finansowego?",
+          "options": [
+            "CRA",
+            "DORA",
+            "RODO",
+            "NIS2"
+          ],
+          "answer": [
+            1
+          ],
+          "categories": [
+            "law"
+          ],
+          "hint": "Weź pod uwagę zarówno branżę klienta, jak i rolę dostawcy usług ICT.",
+          "feedback": [
+            "DORA stosuje się od 17 stycznia 2025 r. do podmiotów finansowych objętych zakresem rozporządzenia, w tym banków. Obejmuje zarządzanie ryzykiem ICT, obsługę i zgłaszanie incydentów, testowanie odporności oraz ryzyko związane z dostawcami usług ICT."
+          ],
+          "refs": [
+            "dora"
+          ]
+        },
+        {
+          "id": "b2",
+          "title": "Ramy zarządzania",
+          "prompt": "Potrzebujemy ogólnego modelu, by zarządzać bezpieczeństwem, chronić systemy, wykrywać incydenty, reagować na nie i przywracać działalność. Który framework najlepiej odpowiada tej potrzebie?",
+          "options": [
+            "NIST CSF 2.0",
+            "PCI DSS",
+            "OWASP Top 10",
+            "CIS Benchmarks"
+          ],
+          "answer": [
+            0
+          ],
+          "categories": [
+            "frameworks"
+          ],
+          "hint": "Szukaj ram obejmujących cały cykl zarządzania, od decyzji kierownictwa po odtworzenie usług.",
+          "feedback": [
+            "NIST CSF 2.0 porządkuje cyberbezpieczeństwo w sześciu funkcjach: Govern (zarządzaj), Identify (identyfikuj), Protect (chroń), Detect (wykrywaj), Respond (reaguj) i Recover (przywracaj).",
+            "Bank może opisać stan obecny i docelowy w profilach organizacyjnych, a następnie ustalić priorytety na podstawie różnic między nimi."
+          ],
+          "refs": [
+            "nist"
+          ]
+        },
+        {
+          "id": "b3",
+          "title": "Przygotowanie na awarię",
+          "prompt": "Jak bank powinien przygotować się na awarię, przez którą klienci nie mogą wykonywać przelewów?",
+          "options": [
+            "Przygotować i przećwiczyć plan przywrócenia działania przelewów.",
+            "Poczekać na awarię i dopiero wtedy ustalić, co robić.",
+            "Przygotować tylko komunikat dla klientów o niedostępności przelewów."
+          ],
+          "answer": [
+            0
+          ],
+          "categories": [
+            "practices"
+          ],
+          "hint": "Pomyśl, co warto ustalić i sprawdzić, zanim wystąpi awaria.",
+          "feedback": [
+            "Plan określa, kto i co robi podczas awarii, aby przywrócić przelewy. Przećwiczenie go wcześniej pomaga sprawdzić, czy zadziała. Sam komunikat dla klientów jest potrzebny, ale nie przywróci usługi."
+          ],
+          "refs": [
+            "dora"
+          ],
+          "shuffle": true
+        }
+      ]
+    },
+    {
+      "id": "store",
+      "icon": "cart",
+      "title": "Sklep internetowy z problemem bezpieczeństwa",
+      "client": "Właściciel sklepu",
+      "context": "Przechowujemy dane klientów i obsługujemy płatności kartami we własnym środowisku. Odkryliśmy również problem z bezpieczeństwem aplikacji. Które przepisy, standardy i dobre praktyki powinniśmy uwzględnić?",
+      "takeaways": [
+        [
+          "RODO",
+          "Ochrona danych osobowych"
+        ],
+        [
+          "PCI DSS",
+          "Bezpieczeństwo danych kart płatniczych"
+        ],
+        [
+          "OWASP Top 10",
+          "Ryzyka aplikacji internetowych"
+        ]
+      ],
+      "questions": [
+        {
+          "id": "s1",
+          "title": "Dokument a problem",
+          "prompt": "Dopasuj po jednym dokumencie do każdego problemu.",
+          "options": [
+            "RODO",
+            "PCI DSS",
+            "OWASP Top 10"
+          ],
+          "answer": [
+            0,
+            1,
+            2
+          ],
+          "categories": [
+            "law",
+            "standards",
+            "practices"
+          ],
+          "hint": "Rozróżnij trzy obszary: prywatność klientów, środowisko płatnicze i bezpieczeństwo kodu aplikacji.",
+          "feedback": [
+            "RODO reguluje przetwarzanie danych osobowych. PCI DSS określa wymagania bezpieczeństwa dla środowisk obsługujących dane kart płatniczych. OWASP Top 10 porządkuje najważniejsze kategorie ryzyka aplikacji internetowych."
+          ],
+          "refs": [
+            "rodo",
+            "pci",
+            "owasp"
+          ],
+          "pairs": [
+            "Ochrona danych osobowych klientów.",
+            "Bezpieczeństwo danych kart płatniczych.",
+            "Rozpoznawanie głównych ryzyk aplikacji internetowych."
+          ]
+        },
+        {
+          "id": "s2",
+          "title": "Charakter wymagań",
+          "prompt": "Które stwierdzenie poprawnie rozróżnia status tych dokumentów?",
+          "options": [
+            "RODO i PCI DSS to obowiązkowe regulacje międzynarodowe, a OWASP Top 10 to branżowy standard dla aplikacji.",
+            "RODO jest prawem, PCI DSS standardem branżowym, a OWASP Top 10 źródłem wiedzy o ryzykach aplikacyjnych.",
+            "RODO jest rozporządzeniem UE, a PCI DSS i OWASP Top 10 to standardy wymagające certyfikacji.",
+            "PCI DSS ma taką samą moc prawną jak RODO, a OWASP Top 10 to jedynie nieformalne zalecenia."
+          ],
+          "answer": [
+            1
+          ],
+          "categories": [
+            "law",
+            "standards",
+            "practices"
+          ],
+          "hint": "Sprawdź, kto wydaje każdy dokument i skąd może wynikać obowiązek jego stosowania.",
+          "feedback": [
+            "RODO jest rozporządzeniem UE i obowiązuje w zakresie, który określa. Wymóg stosowania PCI DSS może wynikać z zasad organizacji płatniczych i zobowiązań umownych. OWASP Top 10 jest materiałem pomocnym w pracy nad bezpieczeństwem aplikacji."
+          ],
+          "refs": [
+            "rodo",
+            "pci",
+            "owasp"
+          ]
+        },
+        {
+          "id": "s3",
+          "title": "Ryzyka aplikacji",
+          "prompt": "W czym przede wszystkim pomoże nam OWASP Top 10?",
+          "options": [
+            "W poznaniu głównych kategorii ryzyka bezpieczeństwa aplikacji internetowych.",
+            "W ustaleniu wymagań prawnych ochrony danych osobowych.",
+            "W określeniu wymagań dotyczących odporności cyfrowej banków.",
+            "W szczegółowej konfiguracji wszystkich serwerów Windows."
+          ],
+          "answer": [
+            0
+          ],
+          "categories": [
+            "practices"
+          ],
+          "hint": "Pomyśl o materiale, który zespół programistyczny może wykorzystać podczas projektowania i testowania sklepu.",
+          "feedback": [
+            "OWASP Top 10 przedstawia wybrane kategorie ryzyka aplikacji internetowych. To punkt wyjścia do projektowania, przeglądów kodu i testowania. Pełna analiza wymaga uwzględnienia dodatkowych ryzyk konkretnej aplikacji."
+          ],
+          "refs": [
+            "owasp"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "camera",
+      "icon": "camera",
+      "title": "Producent inteligentnych kamer",
+      "client": "Prezes firmy",
+      "context": "Produkujemy kamery Wi-Fi sprzedawane na rynku europejskim. Odkryliśmy podatność, która może pozwolić na przejęcie kontroli nad urządzeniem. Chcemy poprawić bezpieczeństwo produktów i uporządkować zabezpieczenia firmowych komputerów oraz serwerów.",
+      "takeaways": [
+        [
+          "CRA",
+          "Cyberbezpieczeństwo produktów cyfrowych"
+        ],
+        [
+          "CIS Controls",
+          "Dobór praktycznych zabezpieczeń"
+        ],
+        [
+          "CIS Benchmarks",
+          "Bezpieczna konfiguracja systemów"
+        ]
+      ],
+      "questions": [
+        {
+          "id": "c1",
+          "title": "Bezpieczeństwo produktu",
+          "prompt": "Która regulacja UE dotyczy cyberbezpieczeństwa produktów z elementami cyfrowymi?",
+          "options": [
+            "DORA",
+            "CRA",
+            "NIS2",
+            "PCI DSS"
+          ],
+          "answer": [
+            1
+          ],
+          "categories": [
+            "law"
+          ],
+          "hint": "W tym przypadku ryzyko wynika z podatności produktu trafiającego na rynek UE. Zwróć uwagę na obowiązki producenta.",
+          "feedback": [
+            "CRA (Cyber Resilience Act, akt w sprawie cyberodporności) obejmuje cyberbezpieczeństwo produktów z elementami cyfrowymi, w tym bezpieczne projektowanie i zarządzanie podatnościami po wprowadzeniu na rynek.",
+            "Główne przepisy stosuje się od 11 grudnia 2027 r. Obowiązki zgłaszania aktywnie wykorzystywanych podatności i poważnych incydentów przez producentów stosuje się od 11 września 2026 r. Przepisy o notyfikacji jednostek oceniających zgodność stosuje się od 11 czerwca 2026 r."
+          ],
+          "refs": [
+            "cra",
+            "craReporting"
+          ]
+        },
+        {
+          "id": "c2",
+          "title": "Dobór zabezpieczeń",
+          "prompt": "Chcemy uporządkować podstawowe zabezpieczenia komputerów, serwerów i kont. Który katalog pomoże nadać działaniom priorytety?",
+          "options": [
+            "CIS Controls",
+            "DORA",
+            "MITRE ATT&CK",
+            "PCI DSS"
+          ],
+          "answer": [
+            0
+          ],
+          "categories": [
+            "practices"
+          ],
+          "hint": "Szukaj uporządkowanej listy działań do wdrożenia w całej organizacji, np. zarządzania kontami i kopiami zapasowymi.",
+          "feedback": [
+            "CIS Controls grupują i priorytetyzują praktyczne zabezpieczenia. Obejmują między innymi zarządzanie zasobami, kontami, dostępem, podatnościami i odzyskiwaniem danych."
+          ],
+          "refs": [
+            "controls"
+          ]
+        },
+        {
+          "id": "c3",
+          "title": "Konfiguracja systemów",
+          "prompt": "Który dokument zawiera konkretne zalecenia dotyczące bezpiecznej konfiguracji serwerów Windows i Linux?",
+          "options": [
+            "CIS Controls",
+            "CIS Benchmarks",
+            "NIST CSF",
+            "RODO"
+          ],
+          "answer": [
+            1
+          ],
+          "categories": [
+            "practices"
+          ],
+          "hint": "Rozróżnij listę obszarów do zabezpieczenia od instrukcji ustawień dla konkretnego systemu operacyjnego.",
+          "feedback": [
+            "CIS Controls pomagają określić, jakie zabezpieczenia wdrożyć. CIS Benchmarks schodzą do ustawień konkretnych technologii, np. wybranej wersji Windows Server lub dystrybucji Linuksa."
+          ],
+          "refs": [
+            "controls",
+            "benchmarks"
+          ]
+        }
+      ]
+    }
+  ],
+  "knowledge": [
+    [
+      "RODO",
+      "Ochrona danych osobowych"
+    ],
+    [
+      "NIS2/KSC",
+      "Zarządzanie cyberbezpieczeństwem podmiotów objętych przepisami"
+    ],
+    [
+      "DORA",
+      "Odporność cyfrowa sektora finansowego"
+    ],
+    [
+      "CRA",
+      "Cyberbezpieczeństwo produktów cyfrowych"
+    ],
+    [
+      "ISO/IEC 27001",
+      "System zarządzania bezpieczeństwem informacji"
+    ],
+    [
+      "PCI DSS",
+      "Bezpieczeństwo danych kart płatniczych"
+    ],
+    [
+      "NIST CSF",
+      "Ramy zarządzania cyberbezpieczeństwem"
+    ],
+    [
+      "CIS Controls",
+      "Katalog praktycznych zabezpieczeń"
+    ],
+    [
+      "CIS Benchmarks",
+      "Bezpieczna konfiguracja systemów"
+    ],
+    [
+      "OWASP Top 10",
+      "Najważniejsze kategorie ryzyka aplikacji internetowych"
+    ]
+  ],
+  "previousQuestions": {
+    "b3": {
+      "prompt": "Które trzy działania pomogą ograniczyć skutki kolejnej awarii dostawcy chmury?",
+      "options": [
+        "Regularnie testować odtwarzanie kopii zapasowych.",
+        "Przygotować i testować plany ciągłości działania.",
+        "Analizować zależności od krytycznych dostawców ICT.",
+        "Kupić nowy firewall bez analizy przyczyn awarii."
+      ],
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "limit": 3,
+      "shuffle": false,
+      "hint": "Zastanów się, jak sprawdzić przed awarią, czy bank zdoła przywrócić klientom dostęp do przelewów.",
+      "feedback": [
+        "Testy odtwarzania pozwalają sprawdzić, czy kopie rzeczywiście da się wykorzystać. Plany ciągłości i analiza zależności od dostawców pomagają utrzymać lub przywrócić kluczowe usługi po awarii."
+      ]
+    },
+    "s2": {
+      "options": [
+        "RODO, PCI DSS i OWASP Top 10 są regulacjami UE.",
+        "RODO jest prawem, PCI DSS standardem branżowym, a OWASP Top 10 źródłem wiedzy o ryzykach aplikacyjnych.",
+        "Każda firma musi uzyskać certyfikat OWASP Top 10.",
+        "PCI DSS to dyrektywa UE."
+      ]
+    }
+  },
+  "sources": {
+    "rodo": [
+      "RODO, art. 9 i 32",
+      "https://eur-lex.europa.eu/eli/reg/2016/679/oj?locale=PL"
+    ],
+    "nis": [
+      "Dyrektywa NIS2, art. 21 i załącznik I",
+      "https://eur-lex.europa.eu/legal-content/pl/TXT/?uri=CELEX%3A32022L2555"
+    ],
+    "ksc": [
+      "Nowelizacja polskiej ustawy o KSC",
+      "https://eli.gov.pl/eli/DU/2026/252/ogl"
+    ],
+    "dora": [
+      "Rozporządzenie DORA",
+      "https://eur-lex.europa.eu/eli/reg/2022/2554/oj?uri=CELEX%3A32022R2554"
+    ],
+    "cra": [
+      "Komisja Europejska o zakresie i terminach CRA",
+      "https://digital-strategy.ec.europa.eu/en/policies/cra-summary"
+    ],
+    "craReporting": [
+      "Komisja Europejska o zgłoszeniach producentów w CRA",
+      "https://digital-strategy.ec.europa.eu/en/policies/cra-reporting"
+    ],
+    "iso": [
+      "ISO/IEC 27001",
+      "https://www.iso.org/standard/27001"
+    ],
+    "pci": [
+      "PCI Security Standards Council o PCI DSS",
+      "https://www.pcisecuritystandards.org/standards/pci-dss/"
+    ],
+    "nist": [
+      "NIST Cybersecurity Framework 2.0 (PDF)",
+      "https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.pdf"
+    ],
+    "controls": [
+      "CIS Critical Security Controls",
+      "https://www.cisecurity.org/controls"
+    ],
+    "benchmarks": [
+      "CIS Benchmarks",
+      "https://www.cisecurity.org/cis-benchmarks"
+    ],
+    "owasp": [
+      "OWASP Top 10",
+      "https://owasp.org/projects/top-ten"
+    ]
+  },
+  "previousQuestionsV2": {
+    "b3": {
+      "id": "b3",
+      "title": "Przygotowanie na awarię",
+      "prompt": "Awaria objęła cały region chmurowy i zablokowała przelewy. Które dwa działania najlepiej pomogą bankowi szybciej wznowić realizację przelewów i uniknąć ich dublowania?",
+      "options": [
+        "Przećwiczyć przełączenie obsługi przelewów do niezależnego regionu i zmierzyć czas wznowienia usługi.",
+        "Zwiększyć moc obliczeniową w tym samym regionie na wypadek większego ruchu.",
+        "Uzgodnić z systemem rozliczeniowym status przelewów w toku przed ponowieniem tych, których nie zrealizowano.",
+        "Ograniczyć liczbę nowych przelewów na godzinę, aby zmniejszyć obciążenie systemu.",
+        "Wyświetlić klientom komunikat o awarii i podać przewidywany czas wznowienia usługi.",
+        "Przekierować klientów do aplikacji mobilnej, która korzysta z tego samego systemu przelewów."
+      ],
+      "answer": [
+        0,
+        2
+      ],
+      "categories": [
+        "practices"
+      ],
+      "hint": "Rozważ dwa osobne problemy: niedostępność systemu oraz niepewność, które zlecenia zdążyły zostać wykonane.",
+      "feedback": [
+        "Próba przełączenia do niezależnego regionu pokazuje, czy i jak szybko bank może wznowić usługę po awarii. Sprawdzenie statusu zleceń przed ich ponowieniem pozwala odróżnić przelewy już wykonane od tych, które nadal trzeba zrealizować.",
+        "Komunikat informuje klientów o utrudnieniach. Zwiększenie mocy w tym samym regionie, ograniczenie ruchu i zmiana kanału dostępu nie przywrócą działania systemu objętego awarią."
+      ],
+      "refs": [
+        "dora"
+      ],
+      "limit": 2,
+      "shuffle": true
+    }
+  }
+}

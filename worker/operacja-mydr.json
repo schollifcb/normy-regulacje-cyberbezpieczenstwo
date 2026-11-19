@@ -1,0 +1,163 @@
+{
+  "id": "operacja-mydr",
+  "title": "OPERACJA MyDr",
+  "subtitle": "Wyciek u dostawcy. Problem szpitala?",
+  "date": "12 sierpnia 2026 r.",
+  "brief": "Jesteś członkiem zespołu ds. cyberbezpieczeństwa fikcyjnego Szpitala Wojewódzkiego. Szpital korzysta z MyDr do prowadzenia części dokumentacji medycznej. Otrzymujesz informację o poważnym incydencie u dostawcy. Według pierwszych doniesień zagrożone mogły być dane milionów pacjentów. Nie wiadomo jeszcze, czy zdarzenie obejmuje dane pacjentów Twojego szpitala.",
+  "mission": "Oceń sytuację, podejmij decyzje i pomóż szpitalowi ograniczyć ryzyko.",
+  "facts": [
+    "12 sierpnia 2026 r. Ministerstwo Cyfryzacji opisało incydent w MyDr. Dostawca potwierdził nieuprawniony dostęp do historycznych danych przechowywanych w swoich systemach.",
+    "W ówczesnym komunikacie wskazano potencjalny zakres około 18,8 mln osób i ponad 12 tys. placówek. To nie jest potwierdzona liczba osób, których dane bezprawnie pozyskano.",
+    "Komunikat nie wskazywał wpływu na bieżącą opiekę zdrowotną, w tym wystawianie recept. Nie potwierdzono zakłócenia centralnych usług e-zdrowia.",
+    "13 sierpnia 2026 r. UODO zapowiedział kontrolę środków ochrony i analizy ryzyka w MyDr. Prokuratura poinformowała o postępowaniu dotyczącym nieuprawnionego dostępu do danych."
+  ],
+  "disclaimer": "Fakty powyżej opisują rzeczywisty incydent. Szpital, jego decyzje i dalsze wiadomości są fikcyjną symulacją dydaktyczną. Nie przypisujemy MyDr niepotwierdzonych podatności, zaniedbań ani przyczyn ataku.",
+  "sources": {
+    "mc": ["Ministerstwo Cyfryzacji · komunikat z 12.08.2026", "https://www.gov.pl/web/cyfryzacja/komunikat-po-spotkaniu-polaczonego-centrum-operacyjnego-cyberbezpieczenstwa"],
+    "uodo": ["UODO · zapowiedź kontroli MyDr, 13.08.2026", "https://uodo.gov.pl/pl/138/4540"],
+    "prokuratura": ["Prokuratura Okręgowa w Warszawie · 13.08.2026", "https://www.gov.pl/web/po-warszawa/postepowania-przygotowawcze-w-sprawie-bezprawnego-uzyskania-danych-wrazliwych-z-systemu-my-dr-sp-z-oo-i-ich-bezprawnego-przetwarzania"],
+    "rodo": ["RODO · art. 24, 28, 32–34 i 39", "https://eur-lex.europa.eu/legal-content/PL/TXT/?uri=CELEX%3A32016R0679"],
+    "ksc": ["Nowelizacja KSC · Dz.U. 2026 poz. 252", "https://eli.gov.pl/eli/DU/2026/252/ogl"],
+    "ksc-guide": ["Ministerstwo Cyfryzacji · wejście w życie nowelizacji KSC", "https://www.gov.pl/web/cyfryzacja/nowelizacja-ustawy-o-krajowym-systemie-cyberbezpieczenstwa-zaczyna-obowiazywac"],
+    "dora": ["DORA · zakres podmiotowy, art. 2", "https://eur-lex.europa.eu/eli/reg/2022/2554/oj?locale=PL"],
+    "iso": ["ISO · ISO/IEC 27001", "https://www.iso.org/standard/27001"],
+    "nist": ["NIST · Cybersecurity Framework 2.0", "https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.pdf"]
+  },
+  "stages": [
+    { "title": "Czy to nasz problem?", "short": "Odpowiedzialność", "badge": "ODPOWIEDZIALNOŚĆ ZA DANE", "time": "2 min" },
+    { "title": "Co właściwie jest zagrożone?", "short": "Ryzyko", "badge": "ANALITYK RYZYKA", "time": "3 min" },
+    { "title": "Które regulacje mają znaczenie?", "short": "Regulacje", "badge": "NAWIGATOR REGULACJI", "time": "3 min" },
+    { "title": "Co teraz powinien zrobić szpital?", "short": "Reakcja", "badge": "INCIDENT RESPONSE", "time": "4 min" },
+    { "title": "Jak ograniczyć ryzyko dostawców?", "short": "Dostawcy", "badge": "RISK MANAGER", "time": "3 min" },
+    { "title": "Finał: kto odpowiada za co?", "short": "Role i doskonalenie", "badge": "CYBERSECURITY ADVISOR", "time": "3 min" }
+  ],
+  "questions": [
+    {
+      "id": "responsibility", "stage": 0, "type": "single", "title": "Czy to nasz problem?",
+      "sceneTitle": "Dyrektor szpitala", "scene": "„Przecież zaatakowano firmę MyDr, a nie nasz szpital. Czy to rzeczywiście nasz problem?”",
+      "prompt": "Wybierz najlepszą odpowiedź.",
+      "options": ["Nie. Za bezpieczeństwo danych odpowiada wyłącznie dostawca.", "Tak. Szpital pozostaje administratorem danych swoich pacjentów, nawet gdy korzysta z zewnętrznego dostawcy.", "Nie. Przekazanie danych do zewnętrznego systemu oznacza przekazanie całej odpowiedzialności.", "Odpowiedzialność ponosi wyłącznie dział IT."],
+      "answer": [1],
+      "consequences": ["Szpital może zaniechać analizy zdarzenia i ochrony pacjentów, błędnie oczekując, że dostawca zajmie się wszystkim.", "Szpital uruchamia własną ocenę sytuacji i współpracuje z dostawcą, aby chronić pacjentów.", "Szpital może przeoczyć własne obowiązki administratora i opóźnić reakcję na zagrożenie dla pacjentów.", "Obciążenie samego IT pomija decyzje dyrekcji, ocenę prawną i doradczą rolę IOD."],
+      "hint": "Zastanów się, czy zlecenie usługi zmienia to, kto decyduje o celach przetwarzania danych pacjentów.",
+      "explanation": ["W opisanym modelu szpital jest administratorem danych, a dostawca podmiotem przetwarzającym. Obie strony mają obowiązki wynikające z RODO. Powierzenie przetwarzania nie przenosi wszystkich obowiązków administratora na dostawcę."],
+      "principle": "Możesz zlecić usługę, ale nadal odpowiadasz za własne obowiązki wobec danych pacjentów.", "refs": ["rodo", "uodo"]
+    },
+    {
+      "id": "risk-map", "stage": 1, "type": "match", "title": "Rozpoznaj elementy ryzyka",
+      "sceneTitle": "Nowe ustalenia · symulacja", "scene": "Nieuprawniona osoba uzyskała dostęp do informacji u dostawcy. Potencjalnie zagrożone są dane identyfikacyjne pacjentów, informacje o wizytach i dane dotyczące zdrowia.",
+      "prompt": "Przyporządkuj każdą kartę do odpowiedniego pojęcia.",
+      "items": ["Dokumentacja medyczna pacjentów.", "Nieuprawniona osoba próbująca pozyskać dane.", "Możliwa słabość zabezpieczeń systemu, której szczegółów jeszcze nie znamy.", "Możliwość nieuprawnionego ujawnienia danych pacjentów.", "Naruszenie prywatności i próby oszustw wykorzystujących dane pacjentów."],
+      "targets": ["Aktywo", "Zagrożenie", "Potencjalna podatność", "Ryzyko", "Potencjalne skutki"],
+      "answer": [0, 1, 2, 3, 4], "unique": true,
+      "reasons": ["Dokumentacja jest cenna dla pacjentów i szpitala.", "Nieuprawniona osoba jest źródłem zagrożenia.", "To hipoteza o możliwej słabości, a nie ustalona przyczyna ataku.", "To możliwość zdarzenia, które może zaszkodzić pacjentom.", "To następstwa ujawnienia informacji dla pacjentów."],
+      "warning": "Nie znamy konkretnej podatności. Ta karta nie opisuje ustalonej przyczyny rzeczywistego incydentu MyDr.",
+      "hint": "Rozróżnij to, co chronimy, źródło zagrożenia, możliwą słabość, zdarzenie i jego następstwa.",
+      "consequence": "Pomieszanie pojęć może skierować zabezpieczenia na niewłaściwy problem i utrudnić ochronę pacjentów.",
+      "explanation": ["Analiza ryzyka łączy aktywo, zagrożenie, potencjalną podatność, ryzyko i skutki. Hipotezę o słabości zabezpieczeń trzeba zweryfikować; nie jest ona dowodem przyczyny incydentu."],
+      "principle": "Oddzielaj ustalone fakty od hipotez i od możliwych skutków.", "refs": []
+    },
+    {
+      "id": "cia", "stage": 1, "type": "single", "title": "Który atrybut został naruszony?",
+      "sceneTitle": "Zespół analizuje dane", "scene": "Ustalono nieuprawniony dostęp do informacji. Nie potwierdzono ich zmiany ani niedostępności systemu.",
+      "prompt": "Który atrybut bezpieczeństwa informacji został bezpośrednio naruszony?",
+      "options": ["Availability – Dostępność", "Integrity – Integralność", "Confidentiality – Poufność"], "answer": [2],
+      "consequences": ["Skupienie się wyłącznie na dostępności może pominąć zagrożenie prywatności pacjentów. Nie potwierdzono przerwy w działaniu systemu.", "Nie ma ustalenia, że ktoś zmienił dane. Ocenę należy oprzeć na potwierdzonym nieuprawnionym dostępie.", "Zespół koncentruje analizę na ochronie ujawnionych informacji i skutkach dla pacjentów."],
+      "hint": "Pomyśl, który atrybut mówi o dostępie do danych wyłącznie przez uprawnione osoby.",
+      "explanation": ["Nieuprawniony dostęp narusza poufność. Nie oznacza automatycznie, że dane zmieniono (integralność) albo system przestał działać (dostępność)."],
+      "principle": "Poufność, integralność i dostępność opisują różne potrzeby ochrony informacji.", "refs": ["iso"]
+    },
+    {
+      "id": "regulations", "stage": 2, "type": "match", "title": "Uporządkuj przepisy i narzędzia",
+      "sceneTitle": "Dyrektor szpitala", "scene": "„Jakie przepisy i standardy powinniśmy uwzględnić w związku z tym zdarzeniem?”",
+      "prompt": "Posortuj pięć kart. Do jednego obszaru może trafić więcej niż jedna karta.",
+      "items": ["RODO", "NIS2 / KSC", "DORA", "ISO/IEC 27001", "NIST CSF"],
+      "targets": ["Obowiązek prawny dotyczący danych pacjentów", "Wymagania, których zastosowanie trzeba zweryfikować", "Narzędzia wspierające zarządzanie bezpieczeństwem", "Co do zasady nie dotyczy tego podmiotu"],
+      "answer": [0, 1, 3, 2, 2],
+      "reasons": ["RODO określa obowiązki ochrony danych osobowych pacjentów.", "Trzeba sprawdzić kryteria objęcia szpitala KSC, jego status, wymagania i terminy.", "DORA dotyczy przede wszystkim sektora finansowego, a nie typowego szpitala.", "ISO/IEC 27001 to norma wymagań dla systemu zarządzania bezpieczeństwem informacji (SZBI).", "NIST CSF to framework porządkujący zarządzanie cyberbezpieczeństwem."],
+      "hint": "Sprawdź charakter dokumentu oraz to, jakich danych, branży lub podmiotów dotyczy.",
+      "consequence": "Błędna klasyfikacja może oznaczać pominięcie obowiązku prawnego albo traktowanie dobrowolnego narzędzia jak ustawy.",
+      "explanation": ["RODO reguluje ochronę danych pacjentów. W Polsce należy zweryfikować zastosowanie ustawy o krajowym systemie cyberbezpieczeństwa (KSC). Nowelizacja wdrażająca NIS2 weszła w życie 3 kwietnia 2026 r. Status szpitala jako podmiotu kluczowego lub ważnego, wymagania oraz terminy wymagają osobnej analizy.", "ISO/IEC 27001 i NIST CSF wspierają zarządzanie bezpieczeństwem. Są co do zasady dobrowolne, choć ich stosowanie może wynikać z umowy lub określonych wymagań prawnych. DORA nie jest podstawową regulacją dla typowego szpitala."],
+      "principle": "Prawo, norma i framework różnią się charakterem oraz zakresem zastosowania.", "refs": ["rodo", "ksc", "ksc-guide", "dora", "iso", "nist"]
+    },
+    {
+      "id": "response", "stage": 3, "type": "single", "title": "Jaka powinna być reakcja szpitala?",
+      "sceneTitle": "Wiadomość od dostawcy", "scene": "„Potwierdzamy, że incydent objął również dane pacjentów Państwa placówki. Przekazujemy ustalony zakres danych oraz informacje niezbędne do oceny zdarzenia”.", "fictionalMessage": true,
+      "prompt": "Wybierz najlepszą reakcję szpitala.",
+      "options": ["Poczekać, aż dostawca sam poinformuje pacjentów.", "Uznać, że szpital nie musi działać, bo incydent wystąpił u dostawcy.", "Rozpocząć ocenę naruszenia, ustalić obowiązki zgłoszeniowe i przygotować odpowiednią komunikację.", "Natychmiast usunąć wszystkie dane pacjentów z systemu."], "answer": [2],
+      "consequences": ["Oczekiwanie może opóźnić ochronę pacjentów i realizację obowiązków szpitala.", "Brak własnej reakcji może prowadzić do zaniedbania obowiązków administratora danych.", "Zespół ustala zakres naruszenia i ryzyko dla pacjentów, aby dobrać działania i obowiązki informacyjne.", "Masowe usuwanie danych może utrudnić leczenie, analizę incydentu i realizację obowiązków dokumentacyjnych."],
+      "hint": "Pomyśl o ocenie sytuacji i obowiązkach szpitala, zanim wybierzesz reakcję.",
+      "explanation": ["Ustal, jakie dane i osoby obejmuje incydent, jakie skutki grożą pacjentom oraz co ograniczy te skutki. Oceń osobno obowiązek zgłoszenia do UODO i poinformowania pacjentów.", "Każde naruszenie ochrony danych trzeba odpowiednio udokumentować, również gdy nie wymaga zgłoszenia organowi. Dostawca ma własne obowiązki, ale nie zastępuje automatycznie szpitala jako administratora."],
+      "principle": "Najpierw rozpoznaj naruszenie i ryzyko dla osób, a następnie dobierz działania.", "refs": ["rodo"]
+    },
+    {
+      "id": "notification", "stage": 3, "type": "single", "title": "Zgłoszenie naruszenia do UODO",
+      "sceneTitle": "Zespół ustala obowiązki", "scene": "Szpital ocenia ryzyko naruszenia praw lub wolności pacjentów. Termin zgłoszenia i obowiązek poinformowania pacjentów trzeba rozpatrzyć oddzielnie.",
+      "prompt": "W jakim terminie RODO przewiduje zgłoszenie organowi nadzorczemu, jeżeli istnieje obowiązek zgłoszenia?",
+      "options": ["12 godzin.", "Bez zbędnej zwłoki i w miarę możliwości nie później niż w ciągu 72 godzin od stwierdzenia naruszenia.", "7 dni.", "30 dni."], "answer": [1],
+      "consequences": ["Przyjęcie niewłaściwego terminu utrudnia zaplanowanie rzetelnej oceny i zgłoszenia. Wcześniejsza reakcja jest możliwa, ale to nie termin wskazany w RODO.", "Szpital planuje działania od momentu stwierdzenia naruszenia, bez zbędnej zwłoki.", "Czekanie siedem dni może spowodować opóźnienie wymaganego zgłoszenia i ochrony pacjentów.", "Czekanie trzydzieści dni może poważnie opóźnić wymagane zgłoszenie i reakcję na ryzyko dla osób."],
+      "hint": "Rozróżnij moment stwierdzenia naruszenia przez szpital od daty publikacji komunikatu prasowego.",
+      "explanation": ["RODO przewiduje zgłoszenie bez zbędnej zwłoki, w miarę możliwości do 72 godzin od stwierdzenia naruszenia przez administratora. Nie jest ono wymagane, jeśli jest mało prawdopodobne, by naruszenie skutkowało ryzykiem dla praw lub wolności osób.", "To nie termin liczony automatycznie od doniesienia prasowego. Zawiadomienie osób jest odrębnym obowiązkiem, co do zasady związanym z wysokim ryzykiem, i następuje bez zbędnej zwłoki. Dokumentuje się również naruszenia niezgłaszane organowi."],
+      "principle": "Oceniaj ryzyko dla osób; odróżniaj zgłoszenie organowi od zawiadomienia pacjentów.", "refs": ["rodo"]
+    },
+    {
+      "id": "suppliers", "stage": 4, "type": "multi", "title": "Wzmocnij zarządzanie dostawcami",
+      "sceneTitle": "Dyrektor szpitala · symulacja", "scene": "Najpilniejsze działania zakończono. „Co powinniśmy poprawić we współpracy z dostawcami, aby ograniczyć ryzyko kolejnego problemu?”",
+      "prompt": "Wybierz trzy najlepsze działania.", "limit": 3,
+      "options": ["Regularna ocena bezpieczeństwa dostawców.", "Określenie wymagań bezpieczeństwa w umowach z dostawcami.", "Sprawdzanie, jakie dane przekazujemy dostawcy i czy wszystkie są potrzebne.", "Automatyczna akceptacja każdego ryzyka związanego z dostawcą.", "Całkowite przekazanie odpowiedzialności za dane dostawcy.", "Rezygnacja z jakiejkolwiek współpracy z firmami zewnętrznymi."], "answer": [0, 1, 2],
+      "reasons": ["Ocena dostawcy pomaga rozpoznać ryzyko i sprawdzać zabezpieczenia.", "Umowa pozwala ustalić wymagania, współpracę i zasady obsługi incydentów.", "Ograniczenie danych do potrzebnego zakresu zmniejsza potencjalne skutki ujawnienia.", "Ryzyka ocenia się świadomie, zamiast automatycznie je akceptować.", "Umowa nie usuwa wszystkich obowiązków administratora.", "Całkowity zakaz outsourcingu nie jest uniwersalną ani proporcjonalną odpowiedzią."],
+      "hint": "Szukaj działań, które pomagają poznać dostawcę, ustalić wymagania i ograniczyć ekspozycję danych.",
+      "consequence": "Brak oceny, wymagań i kontroli zakresu danych pozostawia pacjentów narażonych. Samo zerwanie wszelkiej współpracy nie zastępuje zarządzania ryzykiem.",
+      "explanation": ["Bezpieczeństwo dostawców jest częścią zarządzania ryzykiem szpitala. Liczą się regularna ocena, wymagania umowne, skuteczne zabezpieczenia i kontrola zakresu danych. Automatyczna akceptacja ryzyka, pozorne przekazanie całej odpowiedzialności lub całkowity zakaz outsourcingu nie są ogólnym rozwiązaniem."],
+      "principle": "Ryzykiem dostawcy zarządzaj przez cały okres współpracy.", "refs": ["rodo", "nist"]
+    },
+    {
+      "id": "treatment", "stage": 4, "type": "single", "title": "Jak postępujemy z ryzykiem?",
+      "sceneTitle": "Decyzja zespołu", "scene": "Szpital wprowadza dodatkowe zabezpieczenia i regularną kontrolę dostawców.",
+      "prompt": "Jaką strategię postępowania z ryzykiem zastosowano?",
+      "options": ["AVOID – unikanie", "MITIGATE – ograniczanie", "TRANSFER – przenoszenie", "ACCEPT – akceptacja"], "answer": [1],
+      "consequences": ["Szpital nadal korzysta z usługi, więc nie usuwa ryzyka przez rezygnację z tej działalności.", "Dodatkowe zabezpieczenia zmniejszają prawdopodobieństwo zdarzenia lub jego skutki.", "Nie opisano przeniesienia konsekwencji finansowych na inną stronę; dodano zabezpieczenia i nadzór.", "Wprowadzono zmiany ograniczające ryzyko, zamiast jedynie świadomie je przyjąć."],
+      "hint": "Czy szpital rezygnuje z usługi, przyjmuje ryzyko, dzieli konsekwencje finansowe czy zmniejsza ryzyko zabezpieczeniami?",
+      "explanation": ["MITIGATE to ograniczanie prawdopodobieństwa zdarzenia lub jego skutków. Umowy i ubezpieczenia mogą przenosić część konsekwencji finansowych, lecz nie przenoszą automatycznie wszystkich obowiązków prawnych szpitala."],
+      "principle": "Dobierz sposób postępowania do ryzyka i celu działania.", "refs": ["iso", "nist"]
+    },
+    {
+      "id": "roles", "stage": 5, "type": "match", "title": "Kto odpowiada za co?",
+      "sceneTitle": "Podział działań w szpitalu", "scene": "Szpital ustala, kto prowadzi poszczególne działania. Dopasuj zadania do ról w tej symulacji.",
+      "prompt": "Przyporządkuj sześć zadań do odpowiednich ról.",
+      "items": ["Ocena obowiązków wynikających z RODO.", "Zatwierdzenie planu działań i zapewnienie niezbędnych zasobów.", "Analiza ryzyka dostawcy oraz rekomendowanie odpowiednich zabezpieczeń.", "Techniczne monitorowanie i analiza incydentu.", "Wdrożenie uzgodnionych zabezpieczeń technicznych.", "Niezależna ocena skuteczności przyjętych rozwiązań."],
+      "targets": ["Legal / Compliance z udziałem IOD", "Dyrekcja", "Security & Risk", "SOC / CSIRT", "IT / administratorzy", "Audyt wewnętrzny"],
+      "answer": [0, 1, 2, 3, 4, 5], "unique": true,
+      "reasons": ["Ocena prawna z doradczym i monitorującym udziałem IOD.", "Decyzje, priorytety i zasoby wymagają udziału kierownictwa.", "Ten zespół analizuje ryzyko i rekomenduje zabezpieczenia.", "Zespół reagowania analizuje sygnały i przebieg incydentu.", "Administratorzy wdrażają uzgodnione ustawienia i zabezpieczenia.", "Audyt dostarcza niezależnej oceny, zamiast oceniać własne wdrożenie."],
+      "hint": "Oddziel decyzje kierownictwa, doradztwo prawne, analizę ryzyka, reagowanie, wdrożenie i niezależną ocenę.",
+      "consequence": "Niejasny podział ról może opóźnić reakcję i pozostawić zadania bez właściciela.",
+      "explanation": ["W praktyce zadania mogą się częściowo pokrywać, a struktura zależy od organizacji. IOD doradza i monitoruje ochronę danych; nie przejmuje odpowiedzialności administratora. Ostateczna odpowiedzialność za obowiązki administratora spoczywa na administratorze danych."],
+      "principle": "Przypisz właścicieli działań i zachowaj niezależność doradztwa oraz audytu.", "refs": ["rodo"]
+    },
+    {
+      "id": "improvement", "stage": 5, "type": "single", "title": "Ostatni dylemat",
+      "sceneTitle": "Dyrektor szpitala", "scene": "„Wypełniliśmy wymagania formalne, przygotowaliśmy dokumentację i przeprowadziliśmy analizę ryzyka. Czy teraz możemy uznać, że jesteśmy bezpieczni?”",
+      "prompt": "Wybierz najlepszą odpowiedź.",
+      "options": ["Tak. Zgodność z RODO oznacza pełne bezpieczeństwo danych.", "Tak. Za wszystkie przyszłe cyberataki będzie odpowiadał dostawca.", "Nie. Zgodność jest ważna, ale bezpieczeństwo wymaga też skutecznych zabezpieczeń, monitorowania i ciągłego doskonalenia.", "Nie. Jedyny sposób to całkowita rezygnacja z usług zewnętrznych."], "answer": [2],
+      "consequences": ["Poczucie pełnego bezpieczeństwa może zatrzymać przeglądy i doprowadzić do przeoczenia nowych zagrożeń.", "Szpital nadal ma własne obowiązki, a dostawca nie odpowiada automatycznie za każdy przyszły atak.", "Szpital kontynuuje ocenę ryzyka, sprawdzanie zabezpieczeń i reagowanie na zmiany.", "Rezygnacja z dostawców nie usuwa wszystkich ryzyk, np. błędów we własnych systemach."],
+      "hint": "Pomyśl, czy dokumentacja potwierdza skuteczność zabezpieczeń także wobec przyszłych zmian i zagrożeń.",
+      "explanation": ["Zgodność regulacyjna nie daje pełnego bezpieczeństwa. Szpital musi stale identyfikować ryzyka, stosować i sprawdzać zabezpieczenia, monitorować zagrożenia, reagować oraz doskonalić działania."],
+      "principle": "Bezpieczeństwo wymaga ciągłej pracy, a nie jednorazowego kompletu dokumentów.", "refs": ["iso", "nist"]
+    }
+  ],
+  "areas": [
+    { "label": "Identyfikacja ryzyka", "tasks": ["risk-map", "cia"] },
+    { "label": "Rozpoznawanie regulacji", "tasks": ["regulations"] },
+    { "label": "Odpowiedzialność administratora danych", "tasks": ["responsibility"] },
+    { "label": "Reagowanie na incydenty", "tasks": ["response", "notification"] },
+    { "label": "Zarządzanie dostawcami", "tasks": ["suppliers"] },
+    { "label": "Postępowanie z ryzykiem", "tasks": ["treatment"] },
+    { "label": "Podział odpowiedzialności", "tasks": ["roles"] },
+    { "label": "Ciągłe doskonalenie bezpieczeństwa", "tasks": ["improvement"] }
+  ],
+  "indicators": [
+    { "label": "Ochrona danych pacjentów", "icon": "lock", "tasks": ["responsibility", "risk-map", "cia", "response"] },
+    { "label": "Zgodność z wymaganiami", "icon": "shield", "tasks": ["regulations", "notification", "roles"] },
+    { "label": "Zarządzanie ryzykiem", "icon": "gauge", "tasks": ["suppliers", "treatment", "improvement"] }
+  ]
+}

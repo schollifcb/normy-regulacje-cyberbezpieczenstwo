@@ -1,0 +1,86 @@
+{
+  "szpital": {
+    "name": "Szpital",
+    "title": "Pilne skierowania",
+    "icon": "hospital",
+    "context": "Szpital przyjmuje pilne skierowania przez portal. Zespół bezpieczeństwa zauważył próbę zalogowania się na konto administratora z nieznanego urządzenia.",
+    "cards": [
+      [
+        "Serwer portalu skierowań",
+        "Pomyśl, od czego zależy działanie portalu w zwykły dzień."
+      ],
+      [
+        "Haker próbujący przejąć konto administratora",
+        "Zwróć uwagę na to, kto podejmuje próbę logowania."
+      ],
+      [
+        "Brak MFA na koncie administratora",
+        "Co w zabezpieczeniu logowania można poprawić, zanim dojdzie do przejęcia konta?"
+      ],
+      [
+        "Możliwość przejęcia konta i zablokowania portalu",
+        "Pomyśl, co mogłoby się wydarzyć, gdyby próba logowania się powiodła."
+      ],
+      [
+        "Opóźnienie obsługi pilnych skierowań",
+        "Jak problemy z portalem odczują osoby czekające na obsługę skierowania?"
+      ]
+    ]
+  },
+  "bank": {
+    "name": "Bank",
+    "title": "Dane klientów",
+    "icon": "bank",
+    "context": "Pracownik banku dostaje e-mail z linkiem do fałszywej strony logowania. Jego konto ma dostęp do danych wszystkich klientów, choć pracownik obsługuje tylko własne sprawy.",
+    "cards": [
+      [
+        "Baza danych klientów banku",
+        "Pomyśl, czego bank potrzebuje, żeby obsługiwać sprawy klientów."
+      ],
+      [
+        "Oszust wysyłający fałszywy link do logowania",
+        "Co w tej sytuacji zapoczątkowało próbę wyłudzenia danych?"
+      ],
+      [
+        "Zbyt szeroki dostęp pracownika do danych klientów",
+        "Porównaj zakres dostępu pracownika z tym, czego potrzebuje do swojej pracy."
+      ],
+      [
+        "Możliwość skopiowania danych klientów po przejęciu konta pracownika",
+        "Rozważ, co ktoś mógłby zrobić po uzyskaniu dostępu do konta."
+      ],
+      [
+        "Ujawnienie danych klientów osobie nieuprawnionej",
+        "Zastanów się, co dla klientów oznacza utrata poufności danych."
+      ]
+    ]
+  },
+  "uczelnia": {
+    "name": "Uczelnia",
+    "title": "Zapisy na zajęcia",
+    "icon": "school",
+    "context": "W dniu zapisów wielu studentów loguje się jednocześnie. System działa na jednym serwerze. Uczelnia nie ma serwera zapasowego, który mógłby przejąć jego zadania.",
+    "cards": [
+      [
+        "System zapisów na zajęcia",
+        "Pomyśl, z czego korzystają studenci, gdy wybierają zajęcia."
+      ],
+      [
+        "Przeciążenie serwera przez dużą liczbę jednoczesnych logowań",
+        "Zastanów się, co może zakłócić działanie serwera w dniu zapisów."
+      ],
+      [
+        "Brak serwera zapasowego",
+        "Pomyśl, czego brakuje w obecnej konfiguracji, by zapisy mogły trwać podczas awarii."
+      ],
+      [
+        "Możliwość przerwania zapisów po przeciążeniu serwera",
+        "Zwróć uwagę na to, co dopiero może się wydarzyć przy dużym obciążeniu."
+      ],
+      [
+        "Część studentów nie może zapisać się na zajęcia w wyznaczonym terminie",
+        "Co przerwa w działaniu systemu oznacza dla osób, które mają termin zapisów?"
+      ]
+    ]
+  }
+}

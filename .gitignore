@@ -1,0 +1,6 @@
+/dist/.openai/
+/dist/server/
+/_site/
+/.env
+/.env.*
+/node_modules/

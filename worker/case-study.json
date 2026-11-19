@@ -1,0 +1,551 @@
+{
+  "title": "Szpital pod presją",
+  "subtitle": "Od ryzyka biznesowego do działającego zabezpieczenia",
+  "durationSeconds": 1200,
+  "targetMinutes": "około 18 minut",
+  "facts": [
+    "Fikcyjny Szpital Wojewódzki MediNova w Polsce. 430 pracowników i współpracowników, około 180 hospitalizowanych pacjentów i 90 przyjęć dziennie.",
+    "MediCore obsługuje dokumentację, wyniki badań i zlecenia leków. Wykorzystuje Microsoft Entra ID. Maksymalny akceptowalny przestój wynosi 30 minut.",
+    "W tym scenariuszu formalnie potwierdzono objęcie szpitala krajowymi obowiązkami wdrażającymi NIS2. Szpital przetwarza dane o zdrowiu.",
+    "Zarząd przyjął ISO/IEC 27001 jako podstawę SZBI. Przyszły kontrakt publiczny wymaga certyfikacji.",
+    "14 interaktywnych kont uprzywilejowanych. Sześć bez MFA, w tym dostęp administratora dostawcy. Dwa konta należą do dostawcy. Są też dwa oddzielne konta dostępu awaryjnego.",
+    "650 nieudanych prób logowania w ostatnich siedmiu dniach. Brak potwierdzonego przejęcia konta. Szpital ma licencje Conditional Access i możliwość użycia FIDO2/passkeys."
+  ],
+  "steps": [
+    {
+      "id": "business",
+      "title": "Co naprawdę chronimy?",
+      "short": "Biznes",
+      "type": "business",
+      "intro": "Dyrektor pyta, jaki rezultat należy chronić w pierwszej kolejności.",
+      "prompt": "Wybierz cel działania zespołu kryzysowego.",
+      "options": [
+        "Zapewnić ciągłość bezpiecznego leczenia, z dostępem do dokumentacji, zleceń leków i wyników badań.",
+        "Zapewnić zgodność z ISO/IEC 27001.",
+        "Utrzymać każdy serwer dostępny przez cały czas.",
+        "Natychmiast kupić kolejny produkt bezpieczeństwa."
+      ],
+      "answer": 0,
+      "items": [
+        "MediCore i dokumentacja medyczna",
+        "Uprzywilejowane tożsamości Entra ID",
+        "Integracja laboratorium i zleceń leków",
+        "Strona z godzinami odwiedzin",
+        "Prezentacja promocyjna szpitala"
+      ],
+      "expected": [
+        0,
+        1,
+        2
+      ],
+      "effect": [
+        0,
+        0,
+        0,
+        4,
+        8
+      ],
+      "success": "Zespół ustala priorytet leczenia. MediCore, dokumentacja i zlecenia stają się punktem odniesienia dla planu reakcji.",
+      "failure": "Zespół nie ma wspólnej listy procesów klinicznych do utrzymania. Prace techniczne mogą ominąć zależności potrzebne do leczenia.",
+      "explanation": "Systemy są zasobami wspierającymi cel szpitala. Norma porządkuje zarządzanie, a zakup produktu jest jedną z możliwych decyzji wdrożeniowych."
+    },
+    {
+      "id": "risk",
+      "title": "Zbuduj scenariusz ryzyka",
+      "short": "Ryzyko",
+      "type": "chain",
+      "intro": "SOC potwierdza 650 nieudanych logowań w ostatnich siedmiu dniach. Sześć z 14 kont uprzywilejowanych nie korzysta z MFA. Nie potwierdzono przejęcia konta.",
+      "slots": [
+        "Aktywo",
+        "Zagrożenie",
+        "Podatność",
+        "Zdarzenie ryzyka",
+        "Skutek biznesowy"
+      ],
+      "items": [
+        "Konto uprzywilejowane umożliwiające administrację MediCore",
+        "Atakujący prowadzący password spraying",
+        "Brak MFA na koncie administratora",
+        "Przejęcie konta i uzyskanie dostępu uprzywilejowanego",
+        "Nieautoryzowana zmiana lub niedostępność MediCore, opóźnienie leczenia i ryzyko ujawnienia danych"
+      ],
+      "expected": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "effect": [
+        0,
+        0,
+        0,
+        3,
+        4
+      ],
+      "success": "Ryzyko powiązano z procesem leczenia. Zespół otrzymuje priorytet operacyjny i przygotowuje ochronę kont administracyjnych.",
+      "failure": "Zdarzenie pozostaje niejasno opisanym problemem IT. Zespół reaguje wolniej, a niezabezpieczony dostęp nadal zagraża dokumentacji.",
+      "explanation": "Brak MFA to podatność. Atakujący jest zagrożeniem, przejęcie konta zdarzeniem, a opóźnienie leczenia skutkiem."
+    },
+    {
+      "id": "treatment",
+      "title": "Jak potraktować ryzyko?",
+      "short": "Postępowanie",
+      "type": "single",
+      "intro": "Ocena jakościowa wynosi 4 × 5 = 20/25. Trwają próby przejęcia kont, a skutki mogą dotknąć leczenia.",
+      "prompt": "Wskaż sposób postępowania.",
+      "options": [
+        "Ograniczyć — zabezpieczyć dostęp, monitorować logowania i przygotować ścieżkę awaryjną.",
+        "Zaakceptować — administrator uzna ryzyko za dopuszczalne.",
+        "Przenieść — polegać na umowie z dostawcą lub ubezpieczeniu.",
+        "Uniknąć — zrezygnować z administrowania MediCore."
+      ],
+      "answer": 0,
+      "effect": [
+        0,
+        0,
+        3,
+        3,
+        4
+      ],
+      "success": "Dyrekcja udostępnia zasoby do pilnej zmiany. Plan zakłada ochronę dostępu przy utrzymaniu pracy MediCore.",
+      "failure": "Niezabezpieczony dostęp pozostaje aktywny. Umowa ani ubezpieczenie nie przywrócą dokumentacji pacjenta po przejęciu konta.",
+      "explanation": "W tym scenariuszu trzeba ograniczyć ryzyko. Właściciel ryzyka, z uwzględnieniem wpływu na leczenie, zatwierdza sposób postępowania.",
+      "critical": true
+    },
+    {
+      "id": "applicability",
+      "title": "Co dotyczy tego szpitala?",
+      "short": "Applicability",
+      "type": "classify",
+      "intro": "MediNova przetwarza dane o zdrowiu i została formalnie zakwalifikowana do krajowych obowiązków wdrażających NIS2. Zarząd przyjął ISO/IEC 27001, a przyszły kontrakt wymaga certyfikacji.",
+      "groups": [
+        "Obowiązkowe w tym przypadku",
+        "Decyzja organizacji lub kontrakt",
+        "Dobrowolne wsparcie",
+        "Poza zakresem tego przypadku"
+      ],
+      "items": [
+        "RODO",
+        "NIS2 / krajowa ustawa KSC",
+        "ISO/IEC 27001",
+        "ISO/IEC 27002",
+        "ISO 22301",
+        "NIST CSF",
+        "CIS Controls / Microsoft Cloud Security Benchmark",
+        "DORA",
+        "CRA"
+      ],
+      "expected": [
+        0,
+        0,
+        1,
+        2,
+        2,
+        2,
+        2,
+        3,
+        3
+      ],
+      "criticalRows": [
+        0,
+        1,
+        7,
+        8
+      ],
+      "effect": [
+        0,
+        0,
+        0,
+        2,
+        6
+      ],
+      "success": "Legal i Security uzgadniają zakres wymagań. Plan nie jest opóźniany analizą regulacji niezwiązanych z rolą szpitala.",
+      "failure": "Niewłaściwy zakres wymagań odciąga zespół od kont administratorów. Powstają niespójne ustalenia dotyczące zgodności.",
+      "explanation": "NIS2 jest dyrektywą, KSC ustawą krajową. Ich zastosowanie przyjmujemy z faktów scenariusza. ISO jest normą przyjętą decyzją i kontraktem. DORA dotyczy sektora finansowego, a szpital w tym przypadku nie pełni roli producenta produktu objętej CRA."
+    },
+    {
+      "id": "scope",
+      "title": "Co dokładnie zabezpieczamy?",
+      "short": "Scope",
+      "type": "classify",
+      "intro": "Zmiana dotyczy interaktywnego dostępu uprzywilejowanego. Konta awaryjne i tożsamości usług wymagają odrębnych zasad.",
+      "groups": [
+        "Bezpośredni zakres zmiany MFA",
+        "Kontrolowany wyjątek lub odrębna ścieżka",
+        "Poza zakresem tej zmiany"
+      ],
+      "items": [
+        "Interaktywni administratorzy szpitala",
+        "Administratorzy dostawcy MediCore",
+        "Uprzywilejowany dostęp do Azure i Microsoft 365",
+        "Uprzywilejowany dostęp do MediCore",
+        "Zdalny dostęp administracyjny",
+        "Logi i alerty kont uprzywilejowanych",
+        "Dwa nazwane konta dostępu awaryjnego",
+        "Service principals",
+        "Managed identities i inne workload identities",
+        "Zwykłe konta użytkowników klinicznych — osobna faza",
+        "Platforma operatora płatności",
+        "Niezwiązane systemy informacyjne"
+      ],
+      "expected": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2
+      ],
+      "effect": [
+        0,
+        0,
+        4,
+        2,
+        3
+      ],
+      "success": "Plan obejmuje cały interaktywny dostęp pracowników i dostawców. Konta awaryjne i usługowe otrzymują kontrolowaną ścieżkę.",
+      "failure": "W zakresie pozostała luka. Pominięty dostawca może nadal administrować MediCore, a niewłaściwe potraktowanie kont awaryjnych utrudni wycofanie zmiany.",
+      "explanation": "Uprawnienia dostawcy są równie istotne jak pracownika. Wyjątek dla kont awaryjnych wymaga silnej ochrony, monitoringu i testu. Service principal nie wykonuje zwykłego logowania MFA użytkownika."
+    },
+    {
+      "id": "requirements",
+      "title": "Od wymagania do zabezpieczenia",
+      "short": "Wymagania",
+      "type": "chain",
+      "intro": "Ułóż mapę decyzji dla tego wdrożenia. To pomoc dydaktyczna, której kolejność przyjmujemy w ćwiczeniu. Dokumenty mogą być stosowane równolegle i nie tworzą takiej hierarchii prawnej.",
+      "slots": [
+        "Prawo",
+        "Normy",
+        "Framework",
+        "Dobre praktyki",
+        "Polityka",
+        "Procedura",
+        "Technologia",
+        "Konfiguracja"
+      ],
+      "items": [
+        "RODO oraz właściwe wymagania NIS2/KSC",
+        "ISO/IEC 27001 i ISO/IEC 27002",
+        "NIST CSF — Govern, Identify, Protect, Detect, Respond, Recover",
+        "CIS Controls i Microsoft Cloud Security Benchmark",
+        "Polityka dostępu uprzywilejowanego",
+        "Procedura wdrażania i utrzymania MFA",
+        "Microsoft Entra ID i Conditional Access",
+        "Phishing-resistant MFA dla administratorów"
+      ],
+      "expected": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "soa": [
+        "Kontrola dostępu",
+        "Bezpieczne uwierzytelnianie",
+        "Logowanie i monitoring",
+        "Zarządzanie dostawcami",
+        "Ciągłość działania",
+        "Wdrożyć wszystkie 93 zabezpieczenia Annex A bez analizy"
+      ],
+      "effect": [
+        0,
+        0,
+        2,
+        2,
+        4
+      ],
+      "success": "Zespół łączy potrzeby szpitala z planem kontroli. Uzasadnienie zastosowania zabezpieczeń trafia do Deklaracji Stosowania (SoA).",
+      "failure": "Plan nie łączy wymagań z działaniem kontroli. Wdrożenie dokumentów bez analizy zastosowania utrudni ocenę skuteczności.",
+      "explanation": "ISO/IEC 27001 wymaga uzasadnienia zastosowania zabezpieczeń w Deklaracji Stosowania. Nie zakłada automatycznego wdrożenia wszystkich zabezpieczeń Annex A ani jednej obowiązkowej technologii."
+    },
+    {
+      "id": "responsibility",
+      "title": "Kto podejmuje decyzję?",
+      "short": "Odpowiedzialność",
+      "type": "classify",
+      "intro": "Przydziel główną odpowiedzialność za każde zadanie. Współpraca zespołów nadal jest potrzebna.",
+      "groups": [
+        "Właściciel procesu klinicznego",
+        "Legal/Compliance z udziałem DPO",
+        "Dyrekcja lub formalny właściciel ryzyka",
+        "Security & Risk",
+        "Administrator Entra / właściciel systemu",
+        "SOC/CSIRT",
+        "Audyt wewnętrzny",
+        "Użytkownik"
+      ],
+      "items": [
+        "Określenie tolerowanego przestoju MediCore",
+        "Potwierdzenie applicability",
+        "Akceptacja postępowania i ryzyka rezydualnego",
+        "Projekt polityki i wymagań kontroli",
+        "Wdrożenie Conditional Access",
+        "Monitoring i reakcja",
+        "Niezależna ocena skuteczności",
+        "Przestrzeganie zasad i zgłaszanie problemów"
+      ],
+      "expected": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "criticalRows": [
+        2
+      ],
+      "effect": [
+        0,
+        0,
+        0,
+        5,
+        4
+      ],
+      "success": "Właściciel procesu potwierdza limit 30 minut. Decyzja o ryzyku ma właściciela, a administrator otrzymuje wymagania i plan zmiany.",
+      "failure": "Niewłaściwy podział ról opóźnia zmianę i może naruszyć niezależność oceny. Decyzja o wpływie na leczenie wymaga uprawnionego właściciela.",
+      "explanation": "DPO doradza i monitoruje ochronę danych. Administrator wdraża technologię. Audyt zachowuje niezależność od projektowania i wdrażania kontroli."
+    },
+    {
+      "id": "policy",
+      "title": "Wybierz politykę",
+      "short": "Polityka",
+      "type": "single",
+      "intro": "CISO potrzebuje zasady, którą właściciele systemów będą mogli egzekwować także po zmianie technologii.",
+      "prompt": "Wybierz zapis do polityki dostępu uprzywilejowanego.",
+      "options": [
+        "Pracownicy mają przestrzegać NIS2 i ISO.",
+        "Każdy interaktywny dostęp uprzywilejowany do systemów krytycznych wymaga zatwierdzonego MFA adekwatnego do ryzyka. Wyjątki są imienne, uzasadnione, zatwierdzone, ograniczone czasowo, monitorowane i przeglądane. CISO jest właścicielem polityki, właściciele systemów odpowiadają za egzekwowanie.",
+        "W portalu wybierz Require authentication strength.",
+        "MFA stosuje się, jeśli nie utrudnia pracy."
+      ],
+      "answer": 1,
+      "effect": [
+        0,
+        0,
+        2,
+        2,
+        2
+      ],
+      "success": "Właściciele systemów otrzymują jednoznaczną zasadę wraz z odpowiedzialnością i trybem wyjątków.",
+      "failure": "Administratorzy nie mają egzekwowalnej zasady. Nazwy dokumentów lub instrukcja kliknięcia nie określają odpowiedzialności i dopuszczalnych wyjątków.",
+      "explanation": "Polityka ustala reguły. Procedura opisuje ich realizację. Konfiguracja to konkretne ustawienie wybranej technologii."
+    },
+    {
+      "id": "procedure",
+      "title": "Zbuduj bezpieczną procedurę",
+      "short": "Procedura",
+      "type": "sequence",
+      "intro": "Wskaż kolejność zmiany, która chroni konta i umożliwia utrzymanie MediCore.",
+      "items": [
+        "Zidentyfikuj interaktywne konta uprzywilejowane i ich właścicieli",
+        "Potwierdź zakres systemów i dostępów",
+        "Zarejestruj zatwierdzone metody MFA",
+        "Przygotuj i przetestuj konta awaryjne",
+        "Zdefiniuj wyjątki, okno zmiany i plan wycofania",
+        "Uruchom Conditional Access w trybie Report-only",
+        "Przeanalizuj wpływ i wykonaj testy",
+        "Uzyskaj akceptację zmiany",
+        "Włącz politykę",
+        "Monitoruj logowania, wyjątki i skuteczność"
+      ],
+      "expected": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "effect": [
+        1,
+        2,
+        3,
+        3,
+        0
+      ],
+      "success": "Zmiana ma testy, akceptację i plan wycofania. Zespół przygotowuje wymuszenie MFA bez zatrzymania leczenia.",
+      "failure": "Niezweryfikowana zmiana może odciąć administratorów MediCore. Brak monitoringu albo drogi awaryjnej wydłuży przywracanie dostępu.",
+      "explanation": "Przed włączeniem polityki przygotuj metody i konta awaryjne, sprawdź Report-only i testy, a następnie uzyskaj akceptację."
+    },
+    {
+      "id": "sandbox",
+      "title": "Conditional Access — symulator",
+      "short": "Konfiguracja",
+      "type": "sandbox",
+      "intro": "Zbuduj CA-PRIV-001 dla kont uprzywilejowanych. Sprawdź What If, pięć tożsamości i logi przed zatwierdzeniem zmiany. To lokalna symulacja szkoleniowa.",
+      "effect": [
+        1,
+        3,
+        35,
+        7,
+        0
+      ]
+    },
+    {
+      "id": "assurance",
+      "title": "Czy potrafisz to udowodnić?",
+      "short": "Dowody",
+      "type": "evidence",
+      "intro": "Przygotuj pakiet, który pozwoli sprawdzić uzasadnienie, zakres i działanie zabezpieczenia.",
+      "items": [
+        "Zatwierdzona polityka",
+        "Procedura",
+        "Scope statement",
+        "Wynik analizy ryzyka",
+        "Decyzja właściciela ryzyka",
+        "Statement of Applicability",
+        "Lista objętych kont i ról",
+        "Wersja polityki Conditional Access",
+        "Ticket zmiany i akceptacja",
+        "Wyniki Report-only i What If",
+        "Test kont administratorów",
+        "Test kont awaryjnych",
+        "Logi wymuszenia MFA",
+        "Alert SOC",
+        "Harmonogram przeglądów",
+        "Sam zrzut ekranu z portalu",
+        "Sam certyfikat ISO",
+        "Faktura za licencję",
+        "Ustne potwierdzenie administratora",
+        "Brak incydentu po wdrożeniu"
+      ],
+      "expected": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "prompt": "Co można stwierdzić po skutecznym wdrożeniu MFA?",
+      "options": [
+        "MFA ogranicza określone ryzyko. Szpital nadal zarządza pozostałymi wymaganiami i ryzykami.",
+        "Szpital osiągnął pełną zgodność i całkowite bezpieczeństwo.",
+        "Certyfikat ISO zastąpi testowanie zabezpieczeń."
+      ],
+      "answer": 0,
+      "effect": [
+        0,
+        0,
+        0,
+        2,
+        0
+      ],
+      "success": "Pakiet łączy decyzję i uzasadnienie z wynikami testów oraz dowodami działania. Zespół może wykazać, jak kontrola wspiera leczenie.",
+      "failure": "Pakiet nie wystarcza do potwierdzenia zakresu, wyjątków i skuteczności. Sam zakup, deklaracja lub zrzut ustawienia nie pokazują działania kontroli.",
+      "explanation": "MFA ogranicza konkretną drogę ataku. Nadal potrzebne są zarządzanie dostawcami, kopie, reakcja, ciągłość, dokumentacja i przeglądy."
+    }
+  ],
+  "consultations": {
+    "risk": {
+      "title": "Ryzyko",
+      "text": "Zacznij od ciągłości leczenia. Rozróżnij zasób, atakującego, słabość, zdarzenie i skutek. Ocena 4 × 5 jest uproszczeniem jakościowym. Administrator wdraża kontrolę, a formalny właściciel ryzyka zatwierdza akceptowalny wpływ na proces."
+    },
+    "legal": {
+      "title": "Legal / Compliance",
+      "text": "RODO dotyczy danych osobowych. Objęcie NIS2/KSC potwierdzają fakty scenariusza. Dyrektywa NIS2 i ustawa KSC to różne akty. ISO wynika tu z decyzji i kontraktu. Frameworki i dobre praktyki wspierają wdrożenie. DORA i rola producenta w CRA nie mają zastosowania w opisanym przypadku."
+    },
+    "architect": {
+      "title": "Architekt bezpieczeństwa",
+      "text": "Uwzględnij pracowników, aktywne i kwalifikowane role oraz dostawców. Użyj ochrony odpornej na phishing, wszystkich lokalizacji i właściwych zasobów. Dwa nazwane konta awaryjne muszą mieć niezależną silną metodę, monitoring i test. Tożsamości usług wymagają odrębnej ścieżki. Wykonaj Report-only, What If, testy i analizę logów, potem akceptację i włączenie."
+    }
+  },
+  "identities": [
+    {
+      "id": "staff",
+      "name": "Administrator szpitala · FIDO2",
+      "expected": "Dostęp po silnym MFA",
+      "account": "ADM-CLIN-01",
+      "method": "FIDO2"
+    },
+    {
+      "id": "vendor",
+      "name": "Administrator dostawcy · passkey",
+      "expected": "Dostęp po silnym MFA",
+      "account": "VENDOR-MC-01",
+      "method": "Passkey"
+    },
+    {
+      "id": "password",
+      "name": "Administrator · tylko hasło",
+      "expected": "Blokada i rejestracja metody",
+      "account": "ADM-LEGACY-01",
+      "method": "Hasło"
+    },
+    {
+      "id": "emergency",
+      "name": "Konto awaryjne · FIDO2",
+      "expected": "Dostęp i natychmiastowy alert",
+      "account": "BG-01",
+      "method": "Niezależny klucz FIDO2"
+    },
+    {
+      "id": "service",
+      "name": "Service principal kopii zapasowej",
+      "expected": "Odrębna kontrola tożsamości usługi",
+      "account": "SP-BACKUP",
+      "method": "Certyfikat / managed identity"
+    }
+  ],
+  "sources": [
+    [
+      "Microsoft — uwierzytelnianie odporne na phishing",
+      "https://learn.microsoft.com/en-us/entra/identity/authentication/concept-authentication-strengths"
+    ],
+    [
+      "Microsoft — konta dostępu awaryjnego",
+      "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/security-emergency-access"
+    ],
+    [
+      "Microsoft — tożsamości workload",
+      "https://learn.microsoft.com/en-us/entra/identity/conditional-access/workload-identity"
+    ],
+    [
+      "Microsoft — Report-only",
+      "https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-conditional-access-report-only"
+    ],
+    [
+      "RODO",
+      "https://eur-lex.europa.eu/eli/reg/2016/679/oj?locale=PL"
+    ],
+    [
+      "Nowelizacja KSC",
+      "https://eli.gov.pl/eli/DU/2026/252/ogl"
+    ],
+    [
+      "ISO/IEC 27001",
+      "https://www.iso.org/standard/27001"
+    ],
+    [
+      "NIST CSF 2.0",
+      "https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.pdf"
+    ]
+  ]
+}

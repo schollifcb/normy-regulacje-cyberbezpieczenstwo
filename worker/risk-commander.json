@@ -1,0 +1,97 @@
+{
+  "risks": [
+    {
+      "id": "R1",
+      "title": "Atak ransomware",
+      "icon": "🔒",
+      "description": "Szpital korzysta z elektronicznej dokumentacji medycznej. Część systemów działa na nieaktualnym oprogramowaniu, a kopie zapasowe nie są odpowiednio odseparowane od sieci produkcyjnej. Skuteczny atak ransomware może uniemożliwić dostęp do danych pacjentów i poważnie zakłócić pracę oddziałów."
+    },
+    {
+      "id": "R2",
+      "title": "Kradzież laptopa",
+      "icon": "💻",
+      "description": "Lekarz regularnie zabiera do domu służbowy laptop. Urządzenie zawiera dane medyczne 200 pacjentów, a jego dysk nie jest szyfrowany. Kradzież laptopa może doprowadzić do ujawnienia poufnych danych."
+    },
+    {
+      "id": "R3",
+      "title": "Awaria serwerowni",
+      "icon": "🌡️",
+      "description": "Serwerownia szpitala korzysta z jednego systemu klimatyzacji. Nie ma urządzenia zapasowego. Awaria klimatyzacji może doprowadzić do przegrzania serwerów i czasowej niedostępności systemów informatycznych, w tym dokumentacji medycznej."
+    },
+    {
+      "id": "R4",
+      "title": "Phishing",
+      "icon": "🎣",
+      "description": "Pracownicy szpitala regularnie otrzymują wiadomości phishingowe. W ostatnich trzech miesiącach kilku pracowników podało swoje hasła na fałszywych stronach logowania. Dotychczas nie odnotowano poważnego incydentu, ale istnieje ryzyko przejęcia kont użytkowników."
+    },
+    {
+      "id": "R5",
+      "title": "Awaria strony WWW",
+      "icon": "🌐",
+      "description": "Publiczna strona internetowa szpitala działa na przestarzałym systemie CMS. Atak lub awaria może spowodować jej niedostępność przez kilka dni. Strona pełni funkcję informacyjną i nie obsługuje systemów klinicznych ani dokumentacji medycznej."
+    }
+  ],
+  "reference": {
+    "topGroup": ["R1", "R4"],
+    "thirdGroup": ["R2", "R3"],
+    "priorities": ["R1", "R4", "R3"],
+    "priorityArguments": [
+      {
+        "title": "Dlaczego ransomware przed phishingiem?",
+        "text": "Oba ryzyka mają wynik 20, ale R1 ma wpływ 5. Ransomware może jednocześnie odciąć oddziały od dokumentacji, a kopie w tej samej sieci utrudniają odtworzenie. Opóźnienie dostępu do danych może zagrozić pilnemu leczeniu. R4 ma wpływ 4: ujawnione hasła wymagają pilnej reakcji, lecz zakres szkody zależy od uprawnień kont. W opisie nie potwierdzono zatrzymania usług przez phishing. Dlatego agent AI stawia R1 na pierwszym, a R4 na drugim miejscu."
+      },
+      {
+        "title": "Dlaczego awaria serwerowni przed kradzieżą laptopa?",
+        "text": "R3 i R2 mają wynik 12. Awaria jedynego chłodzenia może wyłączyć serwery i odebrać wielu zespołom dostęp do dokumentacji, opóźniając diagnostykę oraz leczenie. W R2 głównym skutkiem jest ujawnienie danych 200 pacjentów. To poważna szkoda dla ich prywatności, ale opis nie wskazuje na przerwanie pracy systemów klinicznych. Agent AI wybiera R3 jako trzeci priorytet, kierując się ciągłością świadczeń oraz ochroną zdrowia i życia."
+      }
+    ],
+    "priorityContext": "Każda firma lub instytucja może inaczej ocenić ryzyko i wybrać inną kolejność działań. Decyzję należy uzasadnić konkretnymi warunkami organizacji, skutkami dla ludzi i działalności, istniejącymi zabezpieczeniami oraz możliwością odtworzenia usług. Powyższa kolejność wynika z założeń tego scenariusza szpitalnego.",
+    "ratings": {
+      "R1": {
+        "likelihood": 4,
+        "impact": 5,
+        "likelihoodFactor": "Nieaktualne systemy zwiększają możliwość wykorzystania znanych luk. To uzasadnia wysokie prawdopodobieństwo; brak danych o częstości prób ogranicza ocenę do poziomu 4.",
+        "impactFactor": "Ransomware może odciąć wiele oddziałów od dokumentacji, opóźniając pilne decyzje i leczenie. Kopie w tej samej sieci utrudniają odtworzenie. Możliwe zagrożenie zdrowia i życia uzasadnia wpływ 5 oraz pierwszy priorytet.",
+        "patientImpact": "Brak historii choroby, zleceń i wyników może opóźnić decyzje diagnostyczne oraz podanie leków. Przy pacjentach wymagających pilnej pomocy opóźnienie może zagrozić zdrowiu lub życiu. Zasięg zależy od objętych systemów i przygotowania trybu awaryjnego.",
+        "priorityRationale": "Agent AI przyznaje R1 pierwszy priorytet. Możliwość jednoczesnego zatrzymania dostępu do dokumentacji na oddziałach oraz utrudnionego odtworzenia usług daje tu pierwszeństwo przed phishingiem, którego skutki zależą od uprawnień przejętego konta.",
+        "nextStep": "Ustal, które oddziały i procesy zależą od zagrożonych systemów. Zweryfikuj odseparowanie kopii i test odtwarzania, zabezpiecz dostęp administracyjny oraz zaplanuj usunięcie podatności w uzgodnionym oknie zmiany."
+      },
+      "R2": {
+        "likelihood": 3,
+        "impact": 4,
+        "likelihoodFactor": "Laptop regularnie opuszcza szpital, co zwiększa ekspozycję na kradzież. Brak danych o warunkach transportu i wcześniejszych zdarzeniach uzasadnia średni poziom 3.",
+        "impactFactor": "Nieszyfrowany dysk naraża dane medyczne 200 pacjentów na ujawnienie, z możliwą stygmatyzacją i utratą prywatności. To wpływ 4. Agent AI daje jednak pierwszeństwo awarii serwerowni, która może przerwać leczenie.",
+        "patientImpact": "Ujawnienie rozpoznań i historii leczenia może naruszyć prywatność pacjentów, prowadzić do stygmatyzacji i utraty zaufania do szpitala. Opis nie wskazuje, aby kradzież zatrzymywała system kliniczny lub usuwała jedyną kopię dokumentacji.",
+        "priorityRationale": "Agent AI umieszcza R2 poza pierwszą trójką. W tym scenariuszu awaria serwerowni wyprzedza kradzież laptopa, ponieważ może przerwać dostęp do systemów potrzebnych do leczenia wielu pacjentów. R2 nadal wymaga pilnej ochrony danych 200 osób.",
+        "nextStep": "Zweryfikuj potrzebę przechowywania danych lokalnie, ogranicz ich zakres i włącz szyfrowanie dysku. Ustal zasady przewożenia urządzenia oraz zgłaszania jego utraty."
+      },
+      "R3": {
+        "likelihood": 3,
+        "impact": 4,
+        "likelihoodFactor": "Brak zapasowego chłodzenia tworzy pojedynczy punkt awarii. Ponieważ nie znamy stanu urządzenia ani historii usterek, agent AI przyjmuje średni poziom 3.",
+        "impactFactor": "Przegrzanie może wyłączyć serwery z dokumentacją i opóźnić diagnostykę oraz leczenie wielu pacjentów. Wpływ 4 zależy od czasu przestoju i możliwości pracy awaryjnej. Bezpośrednie ryzyko dla ciągłości świadczeń daje R3 trzeci priorytet, przed kradzieżą laptopa.",
+        "patientImpact": "Jeżeli na tych serwerach działają systemy zleceń i wyników, personel może dłużej czekać na informacje potrzebne do leczenia. Ryzyko dla zdrowia i życia wzrasta, gdy dotyczy to pilnych świadczeń i brakuje sprawnego trybu awaryjnego.",
+        "priorityRationale": "Agent AI wybiera R3 na trzeci priorytet przed R2. Przy równym wyniku w macierzy decyduje możliwość jednoczesnego zakłócenia leczenia wielu pacjentów wskutek utraty dostępu do dokumentacji.",
+        "nextStep": "Sprawdź monitoring temperatury, stan klimatyzacji i sposób alarmowania. Przygotuj zastępcze chłodzenie lub inne uzgodnione rozwiązanie oraz przetestuj ciągłość pracy systemów klinicznych podczas awarii."
+      },
+      "R4": {
+        "likelihood": 5,
+        "impact": 4,
+        "likelihoodFactor": "Próby są regularne, a kilku pracowników już ujawniło hasła. To konkretne przesłanki wysokiej ekspozycji, uzasadniające bardzo wysokie prawdopodobieństwo 5.",
+        "impactFactor": "Przejęte konto może umożliwić zmianę dokumentacji lub dalszy atak, z konsekwencjami dla leczenia. Wpływ 4 zależy od uprawnień kont. Agent AI nadaje drugi priorytet, ponieważ w R1 opisano szersze zakłócenie dostępności i trudniejsze odtwarzanie.",
+        "patientImpact": "Jeśli przejęte konto pozwala modyfikować dokumentację lub zlecenia, personel może pracować na niewiarygodnych danych. Atak rozwinięty z takiego dostępu może też zakłócić dostępność usług. Samo ujawnienie hasła nie dowodzi jeszcze zmiany danych pacjenta.",
+        "priorityRationale": "Agent AI wybiera R4 na drugi priorytet. Ujawnione hasła wymagają pilnej reakcji, ale skala szkody zależy od uprawnień kont. R1 wyprzedza R4 ze względu na opisany wpływ ransomware na dostępność dokumentacji i trudności z odtworzeniem.",
+        "nextStep": "Zweryfikuj logowania kont, których hasła ujawniono, oraz unieważnij zagrożone sesje i poświadczenia zgodnie z procedurą. Wzmocnij uwierzytelnianie, ogranicz uprawnienia i przećwicz zgłaszanie phishingu."
+      },
+      "R5": {
+        "likelihood": 3,
+        "impact": 2,
+        "likelihoodFactor": "Przestarzały CMS zwiększa ekspozycję na atak i awarię. Bez danych o konkretnych lukach i wcześniejszych przerwach agent AI przyjmuje średni poziom 3.",
+        "impactFactor": "Pacjenci mogą stracić dostęp do informacji o kontaktach i przyjęciach, ale strona nie obsługuje dokumentacji ani systemów klinicznych. Wpływ 2 oznacza niższą pilność niż ryzyka bezpośrednio zagrażające leczeniu lub danym medycznym.",
+        "patientImpact": "Pacjenci mogą mieć trudność ze znalezieniem numerów kontaktowych, informacji o przyjęciach lub odwiedzinach. Opis nie wskazuje na bezpośrednie zatrzymanie leczenia, diagnostyki czy zleceń leków.",
+        "priorityRationale": "Przy ograniczonych zasobach w pierwszej kolejności rozważ ryzyka mogące zakłócić opiekę kliniczną lub ujawnić dane medyczne. Zabezpiecz przy tym zastępczy kanał informacji dla pacjentów.",
+        "nextStep": "Przygotuj zastępczy sposób publikacji podstawowych danych kontaktowych. Zaktualizuj lub zastąp CMS i sprawdź możliwość odtworzenia strony."
+      }
+    }
+  }
+}

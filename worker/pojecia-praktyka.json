@@ -1,0 +1,123 @@
+{
+  "levels": [
+    {
+      "name": "Prawo UE i krajowe",
+      "example": "RODO",
+      "definition": "Przepisy określają obowiązki podmiotów objętych ich zakresem. RODO jest rozporządzeniem UE dotyczącym ochrony danych osobowych.",
+      "hint": "Zastanów się, gdzie w tej mapie zaczynamy od obowiązków wynikających z przepisów.",
+      "exampleHint": "Sprawdź, czy ten dokument sam ustanawia obowiązki dotyczące danych osobowych.",
+      "story": "Organizacja uwzględnia wymagania bezpieczeństwa wynikające z przepisów, które jej dotyczą."
+    },
+    {
+      "name": "Akty wykonawcze i wytyczne nadzoru",
+      "example": "Rozporządzenie wykonawcze do ustawy",
+      "definition": "Rozporządzenie wykonawcze wydaje się na podstawie upoważnienia ustawowego i w celu wykonania ustawy. Wiąże podmioty objęte jego zakresem. Wytyczne nadzoru opisują oczekiwania lub sposób stosowania wymagań. Ich znaczenie i ewentualny obowiązek stosowania zależą od podstawy prawnej i kontekstu.",
+      "hint": "Poszukaj miejsca dla dokumentów, które w tym modelu doprecyzowują wymagania lub oczekiwania.",
+      "exampleHint": "Pomyśl o roli upoważnienia w ustawie do wydania tego dokumentu.",
+      "story": "Akt wykonawczy lub wytyczne nadzoru mogą doprecyzować oczekiwania wobec zabezpieczeń. Ich znaczenie zależy od dokumentu."
+    },
+    {
+      "name": "Normy",
+      "example": "ISO/IEC 27001",
+      "definition": "ISO/IEC 27001 określa wymagania dotyczące systemu zarządzania bezpieczeństwem informacji, po polsku w skrócie SZBI. Polskie wydanie normy ma oznaczenie PN-EN ISO/IEC 27001. Stosowanie normy jest co do zasady dobrowolne. W określonej sytuacji może go wymagać np. umowa.",
+      "hint": "Pomyśl o dokumentach, które określają uzgodnione wymagania, np. dla systemu zarządzania.",
+      "exampleHint": "Zwróć uwagę, że dokument opisuje wymagania dla całego systemu zarządzania.",
+      "story": "ISO/IEC 27001 określa wymagania dotyczące zarządzania bezpieczeństwem informacji. Wdrożenie MFA może wynikać z oceny ryzyka i doboru odpowiednich zabezpieczeń kontroli dostępu.",
+      "storyEmphasis": "Wdrożenie MFA może wynikać z oceny ryzyka i doboru odpowiednich zabezpieczeń kontroli dostępu."
+    },
+    {
+      "name": "Frameworki i dobre praktyki",
+      "example": "NIST Cybersecurity Framework (CSF)",
+      "definition": "NIST CSF to elastyczne ramy, które pomagają organizacji uporządkować działania związane z zarządzaniem ryzykiem cyberbezpieczeństwa.",
+      "hint": "Gdzie w modelu mieści się elastyczny sposób uporządkowania działań w kilku obszarach?",
+      "exampleHint": "Szukaj kategorii, która pomaga uporządkować działania i ustalić priorytety.",
+      "story": "NIST CSF porządkuje działania związane z cyberbezpieczeństwem w sześciu funkcjach. Wdrożenie MFA wpisuje się w funkcję Protect (Chroń), obejmującą m.in. zarządzanie tożsamością i kontrolę dostępu.",
+      "storyEmphasis": "Wdrożenie MFA wpisuje się w funkcję Protect (Chroń)"
+    },
+    {
+      "name": "Polityki wewnętrzne",
+      "example": "Polityka bezpieczeństwa informacji",
+      "definition": "Polityka określa zasady przyjęte w organizacji, np. wymagania dotyczące ochrony informacji.",
+      "hint": "Zastanów się, gdzie organizacja ustala własne zasady, zanim rozpisze kroki ich wykonania.",
+      "exampleHint": "Czy ten dokument wyznacza zasady dla organizacji, czy opisuje poszczególne kroki?",
+      "story": "Organizacja przyjmuje zasadę, że konta administratorów wymagają MFA."
+    },
+    {
+      "name": "Procedury",
+      "example": "Procedura zgłaszania incydentów",
+      "definition": "Procedura opisuje, kto, kiedy i w jaki sposób zgłasza incydenty bezpieczeństwa.",
+      "hint": "Poszukaj poziomu, na którym ogólna zasada zamienia się w instrukcję działania.",
+      "exampleHint": "Zwróć uwagę, że liczy się kolejność kroków i to, kto je wykonuje.",
+      "story": "Procedura określa, kto wdraża MFA i jak organizacja obsługuje wyjątki."
+    },
+    {
+      "name": "Konfiguracja techniczna",
+      "example": "Wymuszenie MFA dla kont administratorów",
+      "definition": "Konfiguracja techniczna to konkretne ustawienie systemu, np. włączenie uwierzytelniania wieloskładnikowego (MFA) dla kont administratorów.",
+      "hint": "Pomyśl o miejscu dla ustawienia, które rzeczywiście zmienia zachowanie systemu.",
+      "exampleHint": "Co zmieni się w systemie po wykonaniu tego działania?",
+      "story": "Administrator wymusza uwierzytelnianie wieloskładnikowe (MFA) dla wskazanych kont w systemie."
+    }
+  ],
+  "quiz": [
+    {
+      "prompt": "Organizacja chce uporządkować sposób zarządzania cyberbezpieczeństwem, korzystając z elastycznych ram i dobrych praktyk. Czego może użyć?",
+      "options": [
+        "Frameworku, np. NIST CSF.",
+        "Procedury zgłaszania urlopów.",
+        "Dowolnego rozporządzenia UE."
+      ],
+      "answer": 0,
+      "hint": "Poszukaj rozwiązania, które daje organizacji swobodę doboru działań.",
+      "feedback": "Framework pomaga uporządkować działania i dobre praktyki. Obowiązki prawne wynikają z właściwych przepisów."
+    },
+    {
+      "prompt": "Firma tworzy dokument opisujący, kto zgłasza incydenty bezpieczeństwa, komu je przekazuje i jakie kroki należy wykonać. Co to jest?",
+      "options": [
+        "Norma ISO.",
+        "Procedura.",
+        "Konfiguracja."
+      ],
+      "answer": 1,
+      "hint": "Zwróć uwagę na opis kolejnych kroków i odpowiedzialnych osób.",
+      "feedback": "Procedura opisuje sposób wykonania określonych działań. Polityka wyznacza zasady, a procedura pomaga je realizować."
+    },
+    {
+      "prompt": "Czy ISO/IEC 27001 jest automatycznie obowiązkowa dla każdej organizacji?",
+      "options": [
+        "Tak, ponieważ jest normą międzynarodową.",
+        "Nie, jej stosowanie jest co do zasady dobrowolne.",
+        "Tak, ale tylko dla organizacji informatycznych."
+      ],
+      "answer": 1,
+      "hint": "Zastanów się, z czego musiałby wynikać obowiązek stosowania normy.",
+      "feedback": "Stosowanie norm jest co do zasady dobrowolne. W określonych okolicznościach obowiązek może wynikać np. z przepisów lub umowy."
+    }
+  ],
+  "sources": [
+    [
+      "RODO",
+      "https://eur-lex.europa.eu/eli/reg/2016/679/oj?locale=PL"
+    ],
+    [
+      "Konstytucja RP, art. 92",
+      "https://eli.gov.pl/eli/DU/1997/483/ogl"
+    ],
+    [
+      "Przykład statusu wytycznych nadzoru, art. 16 rozporządzenia o EUNB",
+      "https://eur-lex.europa.eu/eli/reg/2010/1093/"
+    ],
+    [
+      "Ustawa o normalizacji, art. 5 ust. 3",
+      "https://eli.gov.pl/eli/DU/2002/1386/ogl"
+    ],
+    [
+      "PN-EN ISO/IEC 27001",
+      "https://sklep.pkn.pl/pn-en-iso-iec-27001-2023-08p.html"
+    ],
+    [
+      "NIST CSF 2.0 (PDF)",
+      "https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.pdf"
+    ]
+  ]
+}
